@@ -15,35 +15,48 @@
     </header>
     <div class="card-content">
       <div class="content">
-
+        <app-cost-proposal
+          v-for="costProposal in costProposals"
+          :key="costProposal.id"
+          :costProposal="costProposal">
+        </app-cost-proposal>
       </div>
     </div>
     <footer class="card-footer">
-      <a class="card-footer-item">Film Quote</a>
-      <a class="card-footer-item">Film Specs</a>
-      <a class="card-footer-item">User Cost Proposals</a>
-      <a class="card-footer-item">Opportunity</a>
+      <a class="card-footer-item">Sort By PM Id</a>
+      <a class="card-footer-item">Sort By PM Id Inverse</a>
+      <a class="card-footer-item">Sort By Cost Proposal Value</a>
+      <a class="card-footer-item">Sort By Cost Proposal Date</a>
     </footer>
   </div>
 </template>
 
 <script>
+  import CostProposal from './CostProposal';
+  import { mapActions } from 'vuex';
   export default {
-    name: 'budget',
     data () {
       return {
-        balance: 0,
-        newValue: 0
+        costProposalIdSort: false
       }
     },
-    created(){
-
-    },
     components: {
-
+      appCostProposal: CostProposal
+    },
+    computed:{
+      costProposals() {
+        console.log(this.$store.getters.costProposals);
+        return this.$store.getters.costProposals;
+      }
     },
     methods: {
-
+      ...mapActions({
+        sortCostProposalById: 'sortCostProposalById'
+      }),
+      idSort(){
+        this.sortCostProposalById();
+        this.costProposalIdSort = !this.costProposalIdSort;
+      },
     }
   }
 </script>

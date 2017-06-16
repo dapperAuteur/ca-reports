@@ -27,6 +27,9 @@
     </header>
     <div class="card-content">
       <div class="content">
+        <div class="">
+
+        </div>
         <app-cost-proposal
           v-for="costProposal in costProposals"
           :key="costProposal.id"
@@ -47,7 +50,6 @@
   import CostProposal from './CostProposal';
   import { mapActions } from 'vuex';
   export default {
-    name: 'budget',
     data () {
       return {
         costProposalIdSort: false
@@ -58,6 +60,7 @@
     },
     computed:{
       costProposals() {
+        console.log(this.$store.getters.costProposals);
         return this.$store.getters.costProposals;
       }
     },
