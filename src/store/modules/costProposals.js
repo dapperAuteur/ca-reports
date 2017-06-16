@@ -5,6 +5,9 @@ const state = {
 };
 
 const mutations = {
+  'SET_COST_PROPOSAL' (state, costProposal) {
+    state.costProposal = costProposal;
+  },
   'SET_COST_PROPOSALS' (state, costProposals) {
     state.costProposals = costProposals;
   },
@@ -13,14 +16,16 @@ const mutations = {
       return a.id - b.id;
     });
   },
-  // 'SET_OFFICES_BY_COMPANYID' (state, costProposals) {
-  //   state.costProposals.sort(function(a, b) {
-  //     return a['company-id'] - b['company-id'];
-  //   });
-  // },
-  'SET_COST_PROPOSAL' (state, costProposal) {
-    state.costProposal = costProposal;
-  }
+  'SET_COST_PROPOSALS_BY_COMPANY_ID' (state, costProposals) {
+    state.costProposals.sort(function(a, b) {
+      return a.attributes['company-id'] - b.attributes['company-id'];
+    });
+  },
+  'SET_COST_PROPOSALS_BY_USER_ID' (state, costProposals) {
+    state.costProposals.sort(function(a, b) {
+      return a.attributes['user-id'] - b.attributes['user-id'];
+    });
+  },
 };
 
 const actions = {
@@ -33,9 +38,12 @@ const actions = {
   sortCostProposalById: ({commit}) => {
     commit('SET_COST_PROPOSALS_BY_ID');
   },
-  // sortOfficeByCompanyId: ({commit}) => {
-  //   commit('SET_OFFICES_BY_COMPANYID');
-  // }
+  sortCostProposalByCompanyId: ({commit}) => {
+    commit('SET_COST_PROPOSALS_BY_COMPANY_ID');
+  },
+  sortCostProposalByUserId: ({commit}) => {
+    commit('SET_COST_PROPOSALS_BY_USER_ID')
+  }
 };
 
 const getters = {

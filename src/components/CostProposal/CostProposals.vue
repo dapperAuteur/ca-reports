@@ -52,7 +52,7 @@
   export default {
     data () {
       return {
-        costProposalIdSort: false
+        costProposalIdSort: true
       }
     },
     components: {
@@ -66,10 +66,15 @@
     },
     methods: {
       ...mapActions({
-        sortCostProposalById: 'sortCostProposalById'
+        sortCostProposalById: 'sortCostProposalById',
+        sortCostProposalByCompanyId: 'sortCostProposalByCompanyId'
       }),
       idSort(){
         this.sortCostProposalById();
+        this.costProposalIdSort = !this.costProposalIdSort;
+      },
+      companyIdSort(){
+        this.sortCostProposalByCompanyId();
         this.costProposalIdSort = !this.costProposalIdSort;
       },
     }
