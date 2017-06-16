@@ -3,6 +3,18 @@
     <header class="card-header">
       <p class="card-header-title">
         All Cost Proposals
+        <button
+          v-if="!costProposalIdSort"
+          class="btn btn-info"
+          @click="idSort">
+          Sort Cost Proposals By Id
+        </button>
+        <button
+          v-else
+          class="btn btn-success"
+          @click="companyIdSort">
+          Sort Cost Proposals By Company Id
+        </button>
         <figure class="image is-48x48">
           <img src="#" alt="Image">
         </figure>
@@ -15,7 +27,11 @@
     </header>
     <div class="card-content">
       <div class="content">
-
+        <app-cost-proposal
+          v-for="costProposal in costProposals"
+          :key="costProposal.id"
+          :costProposal="costProposal">
+        </app-cost-proposal>
       </div>
     </div>
     <footer class="card-footer">
@@ -28,22 +44,31 @@
 </template>
 
 <script>
+  import CostProposal from './CostProposal';
+  import { mapActions } from 'vuex';
   export default {
     name: 'budget',
     data () {
       return {
-        balance: 0,
-        newValue: 0
+        costProposalIdSort: false
       }
     },
-    created(){
-
-    },
     components: {
-
+      appCostProposal: CostProposal
+    },
+    computed:{
+      costProposals() {
+        return this.$store.getters.costProposals;
+      }
     },
     methods: {
-
+      ...mapActions({
+        sortCostProposalById: 'sortCostProposalById'
+      }),
+      idSort(){
+        this.sortCostProposalById();
+        this.costProposalIdSort = !this.costProposalIdSort;
+      },
     }
   }
 </script>

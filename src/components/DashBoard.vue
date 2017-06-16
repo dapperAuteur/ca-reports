@@ -2,7 +2,7 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">
-        Component
+        User Dashboard
       </p>
       <a class="card-header-icon">
         <span class="icon">
@@ -13,23 +13,25 @@
     <div class="card-content">
       <div class="content">
         <h2>All Proposals: 88</h2>
-        <div>
-          <h2>Proposals By PM</h2>
-          <h4>Keisha: 54</h4>
-          <h4>Earl: 20</h4>
-          <h4>Cleofus: 14</h4>
-        </div>
-        <div>
-          <h2>Proposals By Date</h2>
-          <h4>30 Days: 54</h4>
-          <h4>6 Months: 300</h4>
-          <h4>12 Months: 1000</h4>
-        </div>
-        <div>
-          <h2>Proposals By Cost & Date</h2>
-          <h4>30 Days & Over $100k: 54</h4>
-          <h4>6 Months & Over $500k: 300</h4>
-          <h4>12 Months & Over $1M: 1000</h4>
+        <div class="columns">
+          <div class="column">
+            <h2>Proposals By PM</h2>
+            <h5>Keisha: 54</h5>
+            <h5>Earl: 20</h5>
+            <h5>Cleofus: 14</h5>
+          </div>
+          <div class="column">
+            <h2>Proposals By Date</h2>
+            <h5>30 Days: 54</h5>
+            <h5>6 Months: 300</h5>
+            <h5>12 Months: 1000</h5>
+          </div>
+          <div class="column">
+            <h2>Proposals By Cost & Date</h2>
+            <h5>30 Days & Over $100k: 54</h5>
+            <h5>6 Months & Over $500k: 300</h5>
+            <h5>12 Months & Over $1M: 1000</h5>
+          </div>
         </div>
         <br>
         <small>11:09 PM - 1 Jan 2016</small>

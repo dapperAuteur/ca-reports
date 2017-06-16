@@ -6,7 +6,18 @@ import 'buefy/lib/buefy.css'
 import App from './App'
 import router from './router'
 
-Vue.use(Buefy)
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios, Buefy)
+
+Vue.axios.defaults.baseURL = 'http://localhost:3000/v1';
+
+import store from './store/store';
+
+Vue.filter('to-lowercase', function(value) {
+  return value.toLowerCase();
+});
 
 Vue.config.productionTip = false
 
@@ -14,6 +25,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
