@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
+
 import CostProposal from '@/components/CostProposal/CostProposal'
 import CostProposals from '@/components/CostProposal/CostProposals'
 import CostProposalsByCostAndDate from '@/components/CostProposal/CostProposalsByCostAndDate'
 import CostProposalsByDate from '@/components/CostProposal/CostProposalsByDate'
 import CostProposalsByPM from '@/components/CostProposal/CostProposalsByPM'
+
+import LineChart from '@/components/Charts/LineChart'
 
 Vue.use(Router)
 
@@ -40,6 +43,11 @@ export default new Router({
       path: '/cost-proposals-by-pm',
       name: 'CostProposalsByPM',
       component: CostProposalsByPM
+    },
+    {
+      path: '/line-chart',
+      name: 'LineChart',
+      component: LineChart
     }
   ]
 })

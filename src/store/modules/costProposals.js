@@ -32,8 +32,9 @@ const mutations = {
     var arr = [];
     for(var i = 0; i <= cP.length; i++){
       for(var j = 0; j <= cP.length; j++){
-        if(cP[i].attributes['user-id'] == cP[j].attributes['user-id']){
+        if(cP[i].attributes['user-id'] != cP[j].attributes['user-id']){
          console.log(cP[j]);
+         arr.push(cP[j]);
         }
       }
     arr.push([]);
