@@ -5,6 +5,8 @@
         <div class="Chart">
           <h2>Line Chart</h2>
           <line-example></line-example>
+          <h2>Bar Chart</h2>
+          <app-bar-example></app-bar-example>
         </div>
       </div>
     </div>
@@ -13,10 +15,12 @@
 
 <script>
   import LineExample from './LineChart.js'
+  import BarExample from './BarChart.js'
   export default {
     name: 'app',
     components: {
-      LineExample
+      appLineExample: 'LineExample',
+      appBarExample: 'BarExample'
     }
   }
 </script>
