@@ -1,7 +1,8 @@
 const state = {
   costProposals: [],
   costProposal: {},
-  costProposalsByFilmQuote: []
+  costProposalsByFilmQuote: [],
+  costProposalsGroupedByUserId: []
 };
 
 const mutations = {
@@ -26,6 +27,19 @@ const mutations = {
       return a.attributes['user-id'] - b.attributes['user-id'];
     });
   },
+  'SET_COST_PROPOSALS_GROUPED_BY_USER_ID' (state, costProposals) {
+    var cP = state.costProposals;
+    var arr = [];
+    for(var i = 0; i <= cP.length; i++){
+      for(var j = 0; j <= cP.length; j++){
+        if(cP[i].attributes['user-id'] == cP[j].attributes['user-id']){
+         console.log(cP[j]);
+        }
+      }
+    arr.push([]);
+    }
+    console.log(arr);
+  },
 };
 
 const actions = {
@@ -34,6 +48,9 @@ const actions = {
   // },
   initCostProposals: ({commit}) => {
     commit('SET_COST_PROPOSALS', costProposals);
+  },
+  initCostProposalsGroupedByUserId: ({commit}) => {
+    commit('SET_COST_PROPOSALS_GROUPED_BY_USER_ID', costProposals);
   },
   sortCostProposalById: ({commit}) => {
     commit('SET_COST_PROPOSALS_BY_ID');
@@ -52,6 +69,9 @@ const getters = {
   },
   costProposal: state => {
     return state.costProposal;
+  },
+  costProposalsGroupedByUserId: state => {
+    return state.costProposalsGroupedByUserId;
   }
 }
 

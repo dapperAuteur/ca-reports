@@ -25,7 +25,6 @@ export const loadData = ({commit}) => {
       if (data) {
         const cost_proposals = data;
         commit('SET_COST_PROPOSALS', cost_proposals);
-        console.log(1);
       }
     });
 

@@ -3,20 +3,20 @@
     <header class="card-header">
       <p class="card-header-title">
         Cost Proposals By PM
-        <button
-          v-if="!costProposalIdSort"
-          class="btn btn-info"
-          @click="idSort">
-          Sort Cost Proposals By Id
-        </button>
-        <button
-          v-else
-          class="btn btn-success"
-          @click="userIdSort">
-          Sort Cost Proposals By User Id
-        </button>
-        <figure class="image is-48x48">
-          <img src="#" alt="Image">
+
+        <figure class="image">
+          <button
+            v-if="!costProposalIdSort"
+            class="btn btn-info"
+            @click="idSort">
+            Sort Cost Proposals By Id
+          </button>
+          <button
+            v-else
+            class="btn btn-success"
+            @click="userIdSort">
+            Sort Cost Proposals By User Id
+          </button>
         </figure>
       </p>
       <a class="card-header-icon">
@@ -57,23 +57,7 @@
     },
     computed:{
       costProposals() {
-        // console.log(this.$store.getters.costProposals);
-        var cP = this.$store.getters.costProposals;
-        console.log(cP);
-        // var createArray = function(){
-        //   var arr = [];
-        //   for(var i = 0; i <= cP.length; i++){
-        //     for(var j = 0; j <= cP.length; j++){
-        //       if(cP[i].attributes['user-id'] == cP[j].attributes['user-id']){
-        //        console.log(cP[j]);
-        //       }
-        //     }
-        //   arr.push([]);
-        //   }
-        //   console.log(arr);
-        // };
-        //
-        // createArray();
+        console.log(this.$store.getters.costProposalsGroupedByUserId);
         return this.$store.getters.costProposals;
       }
     },
