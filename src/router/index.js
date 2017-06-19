@@ -8,7 +8,9 @@ import CostProposalsByCostAndDate from '@/components/CostProposal/CostProposalsB
 import CostProposalsByDate from '@/components/CostProposal/CostProposalsByDate'
 import CostProposalsByPM from '@/components/CostProposal/CostProposalsByPM'
 
+import BarChart from '@/components/Charts/BarChart'
 import LineChart from '@/components/Charts/LineChart'
+import LineChart2 from '@/components/Charts/LineChart2'
 
 Vue.use(Router)
 
@@ -45,9 +47,19 @@ export default new Router({
       component: CostProposalsByPM
     },
     {
+      path: '/bar-chart',
+      name: 'BarChart',
+      component: BarChart
+    },
+    {
       path: '/line-chart',
       name: 'LineChart',
       component: LineChart
-    }
+    },,
+    {
+      path: '/line-chart-2',
+      name: 'LineChart2',
+      component: LineChart2
+    },
   ]
 })

@@ -1,4 +1,4 @@
-import { Bar } from 'chart.js'
+import { Bar } from 'vue-chartjs'
 
 export default Bar.extend({
   data() {
@@ -9,41 +9,39 @@ export default Bar.extend({
   },
   mounted () {
 
+    this.gradient = this.$refs.canvas.getContext('2d').createLinearGradient(0,0,0, 450)
+    this.gradient2 = this.$refs.canvas.getContext('2d').createLinearGradient(0,0,0, 450)
+
+    this.gradient.addColorStop(0, 'rgba(100, 0, 0, 0.5)')
+    this.gradient.addColorStop(0.5, 'rgba(100, 0, 0, 0.25)')
+    this.gradient.addColorStop(1, 'rgba(100, 0, 0, 0)')
+
+    this.gradient2.addColorStop(0, 'rgba(75, 0, 0, 0.9)')
+    this.gradient2.addColorStop(0.5, 'rgba(75, 0, 0, 0.25)')
+    this.gradient2.addColorStop(1, 'rgba(75, 0, 0, 0)')
+
     this.renderChart({
-      type: 'bar',
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 3
-            }]
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'Data One',
+          borderColor: '#FC2525',
+          pointBackgroundColor: 'white',
+          borderWidth: 1,
+          pointBorderColor: 'white',
+          backgroundColor: this.gradient,
+          data: [90, 86, 4, 200, 39, 80, 40]
         },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
+        {
+          label: 'Data Two',
+          borderColor: '#05CBE1',
+          pointBackgroundColor: 'white',
+          pointBorderColor: 'white',
+          borderWidth: 1,
+          backgroundColor: this.gradient2,
+          data: [60, 55, 32, 10, 2, 12, 53]
         }
-    });
+      ]
+    }, {responsive: true, maintainAspectRatio: false})
   }
-});
+})
