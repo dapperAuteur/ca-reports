@@ -1,6 +1,6 @@
-import { PolarArea } from 'vue-chartjs'
+import { Doughnut } from 'vue-chartjs'
 
-export default PolarArea.extend({
+export default Doughnut.extend({
   data() {
     return {
 
