@@ -1,6 +1,6 @@
-import { Doughnut } from 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
 
-export default Doughnut.extend({
+export default Pie.extend({
   data() {
     return {
 
