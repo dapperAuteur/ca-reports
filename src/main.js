@@ -9,6 +9,9 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import Chart from 'vue-chartjs'
+// Chart.defaults.global.responsive = false;
+
 Vue.use(VueAxios, axios, Buefy)
 
 Vue.axios.defaults.baseURL = 'http://localhost:3000/v1';
