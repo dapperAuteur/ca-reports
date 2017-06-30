@@ -38,10 +38,46 @@
       </div>
     </div>
     <footer class="card-footer">
-      <router-link to="/cost-proposals" activeClass="active" class="card-footer-item"><a>All Proposals</a></router-link>
-      <router-link to="/cost-proposals-by-pm" activeClass="active" class="card-footer-item"><a>Proposals By PM</a></router-link>
-      <router-link to="/cost-proposals-by-date" activeClass="active" class="card-footer-item"><a>Proposals By Date</a></router-link>
-      <router-link to="/cost-proposals-by-cost-and-date" activeClass="active" class="card-footer-item"><a>Proposals By Cost & Date</a></router-link>
+      <router-link
+        to="/cost-proposals"
+        activeClass="active"
+        class="card-footer-item">
+        <a>
+          All Proposals
+        </a>
+      </router-link>
+      <router-link
+        to="/cost-proposals-by-pm"
+        activeClass="active"
+        class="card-footer-item">
+        <a>
+          Proposals By PM
+        </a>
+      </router-link>
+      <router-link
+        to="/cost-proposals-by-pm2"
+        activeClass="active"
+        class="card-footer-item">
+        <a>
+          Proposals By PM 2
+        </a>
+      </router-link>
+      <router-link
+        to="/cost-proposals-by-date"
+        activeClass="active"
+        class="card-footer-item">
+        <a>
+          Proposals By Date
+        </a>
+      </router-link>
+      <router-link
+        to="/cost-proposals-by-cost-and-date"
+        activeClass="active"
+        class="card-footer-item">
+        <a>
+          Proposals By Cost & Date
+        </a>
+      </router-link>
     </footer>
   </div>
 </template>

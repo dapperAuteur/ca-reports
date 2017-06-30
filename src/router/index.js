@@ -7,6 +7,7 @@ import CostProposals from '@/components/CostProposal/CostProposals'
 import CostProposalsByCostAndDate from '@/components/CostProposal/CostProposalsByCostAndDate'
 import CostProposalsByDate from '@/components/CostProposal/CostProposalsByDate'
 import CostProposalsByPM from '@/components/CostProposal/CostProposalsByPM'
+import CostProposalsByPM2 from '@/components/CostProposal/CostProposalsByPM2'
 
 import BarChart from '@/components/Charts/BarChart'
 import LineChart from '@/components/Charts/LineChart'
@@ -45,6 +46,11 @@ export default new Router({
       path: '/cost-proposals-by-pm',
       name: 'CostProposalsByPM',
       component: CostProposalsByPM
+    },
+    {
+      path: '/cost-proposals-by-pm2',
+      name: 'CostProposalsByPM2',
+      component: CostProposalsByPM2
     },
     {
       path: '/bar-chart',
