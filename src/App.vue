@@ -9,10 +9,11 @@
     name: 'app',
     created() {
       this.$store.dispatch('loadData');
-      console.log(Chart.defaults.global);
-      console.log(Chart.defaults.global.responsive);
-      Chart.defaults.global.responsive = true;
-      console.log(Chart.defaults.global.responsive);
+      // console.log(this.$store.state);
+      // console.log(Chart.defaults.global);
+      // console.log(Chart.defaults.global.responsive);
+      // Chart.defaults.global.responsive = true;
+      // console.log(Chart.defaults);
     }
   }
 </script>

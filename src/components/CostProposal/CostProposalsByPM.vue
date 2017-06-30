@@ -44,6 +44,7 @@
 </template>
 
 <script>
+  import * as d3 from 'd3';
   import CostProposal from './CostProposal';
   import { mapActions } from 'vuex';
   export default {
