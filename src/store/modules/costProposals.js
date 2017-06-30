@@ -17,6 +17,11 @@ const mutations = {
       return a.id - b.id;
     });
   },
+  'SET_COST_PROPOSALS_BY_ID_REVERSE' (state, costProposals) {
+    state.costProposals.sort(function(a, b){
+      return b.id - a.id;
+    });
+  },
   'SET_COST_PROPOSALS_BY_COMPANY_ID' (state, costProposals) {
     state.costProposals.sort(function(a, b) {
       return a.attributes['company-id'] - b.attributes['company-id'];
@@ -26,6 +31,11 @@ const mutations = {
     state.costProposals.sort(function(a, b) {
       return a.attributes['user-id'] - b.attributes['user-id'];
     });
+  },
+  'SET_COST_PROPOSALS_BY_USER_ID_REVERSE' (state, costProposals) {
+    state.costProposals.sort(function(a, b) {
+      return b.attributes['user-id'] - a.attributes['user-id'];
+    })
   },
   'SET_COST_PROPOSALS_GROUPED_BY_USER_ID' (state, costProposals) {
     var cP = state.costProposals;
@@ -61,6 +71,9 @@ const actions = {
   },
   sortCostProposalByUserId: ({commit}) => {
     commit('SET_COST_PROPOSALS_BY_USER_ID')
+  },
+  sortCostProposalByUserIdReverse: ({commit}) => {
+    commit('SET_COST_PROPOSALS_BY_USER_ID_REVERSE')
   }
 };
 

@@ -35,8 +35,16 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a class="card-footer-item">Sort By PM Id</a>
-      <a class="card-footer-item">Sort By PM Id Inverse</a>
+      <a
+        class="card-footer-item"
+        @click="userIdSort"
+        >Sort By PM Id
+      </a>
+      <a
+        class="card-footer-item"
+        @click="userIdSortReverse"
+        >Sort By PM Id Inverse
+      </a>
       <a class="card-footer-item">Sort By Cost Proposal Value</a>
       <a class="card-footer-item">Sort By Cost Proposal Date</a>
     </footer>
@@ -58,7 +66,6 @@
     },
     computed:{
       costProposals() {
-        console.log(this.$store.getters.costProposalsGroupedByUserId);
         return this.$store.getters.costProposals;
       }
     },
@@ -66,7 +73,8 @@
       ...mapActions({
         sortCostProposalById: 'sortCostProposalById',
         sortCostProposalByCompanyId: 'sortCostProposalByCompanyId',
-        sortCostProposalByUserId: 'sortCostProposalByUserId'
+        sortCostProposalByUserId: 'sortCostProposalByUserId',
+        sortCostProposalByUserIdReverse: 'sortCostProposalByUserIdReverse'
       }),
       idSort(){
         this.sortCostProposalById();
@@ -75,6 +83,9 @@
       userIdSort(){
         this.sortCostProposalByUserId();
         this.costProposalIdSort = !this.costProposalIdSort;
+      },
+      userIdSortReverse(){
+        this.sortCostProposalByUserIdReverse();
       }
     }
   }

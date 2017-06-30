@@ -21,7 +21,7 @@
             Film Spec Id: {{ costProposal.attributes['film-spec-id'] }}<br />
             Film Quote Id: {{ costProposal.attributes['film-quote-id'] }}<br />
             Date: {{ costProposal.attributes.date }}<br />
-            Section 1 Text: {{ costProposal.attributes['section1-text'] }}<br />
+            <!-- Section 1 Text: {{ costProposal.attributes['section1-text'] }}<br />
             TR1 Head: {{ costProposal.attributes['tr1-head'] }}<br />
             TR1-Text: {{ costProposal.attributes['tr1-text'] }}<br />
             TR1-Head: {{ costProposal.attributes['tr2-head'] }}<br />
@@ -44,7 +44,7 @@
             File 1:{{ costProposal.attributes.file1 }}<br />
             File 2:{{ costProposal.attributes.file2 }}<br />
             File 3:{{ costProposal.attributes.file3 }}<br />
-            File 4:{{ costProposal.attributes.file4 }}<br />
+            File 4:{{ costProposal.attributes.file4 }}<br /> -->
             Signature: {{ costProposal.attributes.signature }}<br />
           </h4>
       </div>
