@@ -32,13 +32,22 @@
     </header>
     <div class="card-content">
       <div class="content">
+        <app-cost-proposal-grouped-by-p-m
+          v-for="costProposal in costProposalsByForLoop()"
+          :key="costProposal.id"
+          :costProposal="costProposal">
+        </app-cost-proposal-grouped-by-p-m>
+      </div>
+    </div>
+    <!-- <div class="card-content">
+      <div class="content">
         <app-cost-proposal
           v-for="costProposal in costProposals"
           :key="costProposal.id"
           :costProposal="costProposal">
         </app-cost-proposal>
       </div>
-    </div>
+    </div> -->
     <footer class="card-footer">
       <a
         class="card-footer-item"
@@ -59,6 +68,7 @@
 <script>
   import * as d3 from 'd3';
   import CostProposal from './CostProposal';
+  import CostProposalGroupedByPM from './CostProposalGroupedByPM';
   import { mapActions } from 'vuex';
   export default {
     data () {
@@ -67,11 +77,15 @@
       }
     },
     components: {
-      appCostProposal: CostProposal
+      appCostProposal: CostProposal,
+      appCostProposalGroupedByPM: CostProposalGroupedByPM
     },
     computed:{
       costProposals() {
         return this.$store.getters.costProposals;
+      },
+      costProposalByPM() {
+        return this.$store.getters.costProposalsGroupedByUserId;
       }
     },
     methods: {
@@ -94,19 +108,22 @@
         this.sortCostProposalByUserIdReverse();
       },
       costProposalsByPM(){
+        this.initCostProposalsGroupedByUserId();
         console.log(this.$store.getters.costProposalsGroupedByUserId);
-        return this.$store.getters.costProposalsGroupedByUserId;
-        // this.initCostProposalsGroupedByUserId();
-        // console.log(this.$store.state.costProposals.costProposalsGroupedByUserId);
-        // console.log(this.costProposals);
-        // var allCP = this.costProposals;
-        // console.log(allCP);
-
-        // var groupByPM = d3.nest().key(function(d) {
-        //   return d.attributes['user-id'];
-        // }).entries(allCP);
-        // console.log(groupByPM);
-        // this.$store.state.costProposals = groupByPM;
+        console.log(this.$store.getters.costProposalsGroupedByUserId.length);
+      },
+      // a method which filters the stories depending on the writter
+      costProposalsBy: function (pm) {
+        return this.costProposals.filter(function (costProposal) {
+          return costProposal.attributes['user-id'] === pm
+        });
+      },
+      costProposalsByForLoop: function() {
+        for(var i = 0; i < this.$store.getters.costProposalsGroupedByUserId.length; i++) {
+          return this.costProposals.filter(function (costProposal) {
+            return costProposal.attributes['user-id'] === i
+          });
+        }
       }
     }
   }

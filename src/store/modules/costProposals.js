@@ -1,6 +1,7 @@
+import * as d3 from 'd3';
 const state = {
-  costProposals: [],
   costProposal: {},
+  costProposals: [],
   costProposalsByFilmQuote: [],
   costProposalsGroupedByUserId: []
 };
@@ -11,6 +12,12 @@ const mutations = {
   },
   'SET_COST_PROPOSALS' (state, costProposals) {
     state.costProposals = costProposals;
+    // console.log(costProposals);
+    var groupByPM = d3.nest().key(function(d) {
+      return d.attributes['user-id'];
+    }).entries(costProposals);
+    state.costProposalsGroupedByUserId = groupByPM;
+    console.log(state.costProposalsGroupedByUserId);
   },
   'SET_COST_PROPOSALS_BY_ID' (state, costProposals) {
     state.costProposals.sort(function(a, b){
@@ -38,30 +45,26 @@ const mutations = {
     })
   },
   'SET_COST_PROPOSALS_GROUPED_BY_USER_ID' (state, costProposals) {
-    var cP = state.costProposals;
-    var arr = [];
-    for(var i = 0; i <= cP.length; i++){
-      for(var j = 0; j <= cP.length; j++){
-        if(cP[i].attributes['user-id'] != cP[j].attributes['user-id']){
-         console.log(cP[j]);
-         arr.push(cP[j]);
-        }
-      }
-    arr.push([]);
-    }
-    console.log(arr);
-  },
+    return state.costProposalsGroupedByUserId;
+    // var allCP = this.costProposals;
+    // console.log(allCP);
+    // state.costProposalsGroupedByUserId = costProposals;
+    // console.log(0);
+    // console.log(costProposals);
+    // var groupByPM = d3.nest().key(function(d) {
+    //   return d.attributes['user-id'];
+    // }).entries(costProposals);
+    // state.costProposalsGroupedByUserId = groupByPM;
+    // return groupByPM;
+  }
 };
 
 const actions = {
-  // buyOffice: ({ commit}, order) => {
-  //   commit('BUY_OFFICE', order);
-  // },
   initCostProposals: ({commit}) => {
     commit('SET_COST_PROPOSALS', costProposals);
   },
   initCostProposalsGroupedByUserId: ({commit}) => {
-    commit('SET_COST_PROPOSALS_GROUPED_BY_USER_ID', costProposals);
+    commit('SET_COST_PROPOSALS_GROUPED_BY_USER_ID');
   },
   sortCostProposalById: ({commit}) => {
     commit('SET_COST_PROPOSALS_BY_ID');

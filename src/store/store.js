@@ -22,24 +22,6 @@ import * as actions from './data';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state: {
-    companies: [],
-    company: {},
-    contacts: [],
-    contact: {},
-    costProposal: {},
-    costProposals: [],
-    filmQuote: {},
-    filmQuotes: [],
-    filmSpec: {},
-    filmSpecs: [],
-    offices: [],
-    office: {},
-    opportunities: [],
-    opportunity: {},
-    users: [],
-    user: {}
-  },
   actions,
   modules: {
     companies,

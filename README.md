@@ -29,3 +29,21 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 # ca-reports
+
+## Issues:
+
+Project Managers: `[{ 1: 'Kyle'}, { 2: 'Kim'}, { 3: 'Zach' }]`
+
+create an array of objects that are the key: value `{ user.attributes['user-id']: user.attributes.name }`
+
+use this array to feed a component that shows the data on the user and their work.
+
+make similar arrays for other objects.
+
+then make an array of associations between objects.
+
+example:
+
+Project Manager: Cost Proposals
+`[{ user.id: [ costProposal.id, costProposal.id, costProposal.id ] }]`
+`[{ 1: [1,2,5,9] }]`
