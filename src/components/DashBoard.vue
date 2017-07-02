@@ -16,9 +16,15 @@
         <div class="columns">
           <div class="column">
             <h2>Proposals By {{ projMgrCount }} PMs</h2>
-            <h5>Keisha: 54</h5>
-            <h5>Earl: 20</h5>
-            <h5>Cleofus: 14</h5>
+            <ul class="list-group">
+              <li
+                v-for="pm in projMgrNames"
+                :key="projMgrNames.id"
+                class="list-group-item"
+                >
+                {{ pm.attributes.email }} ## {{ costProposalsByPM.length }}
+              </li>
+            </ul>
           </div>
           <div class="column">
             <h2>Proposals By Date</h2>
@@ -37,48 +43,6 @@
         <small>11:09 PM - 1 Jan 2016</small>
       </div>
     </div>
-    <footer class="card-footer">
-      <router-link
-        to="/cost-proposals"
-        activeClass="active"
-        class="card-footer-item">
-        <a>
-          All Proposals
-        </a>
-      </router-link>
-      <router-link
-        to="/cost-proposals-by-pm"
-        activeClass="active"
-        class="card-footer-item">
-        <a>
-          Proposals By PM
-        </a>
-      </router-link>
-      <router-link
-        to="/cost-proposals-by-pm2"
-        activeClass="active"
-        class="card-footer-item">
-        <a>
-          Proposals By PM 2
-        </a>
-      </router-link>
-      <router-link
-        to="/cost-proposals-by-date"
-        activeClass="active"
-        class="card-footer-item">
-        <a>
-          Proposals By Date
-        </a>
-      </router-link>
-      <router-link
-        to="/cost-proposals-by-cost-and-date"
-        activeClass="active"
-        class="card-footer-item">
-        <a>
-          Proposals By Cost & Date
-        </a>
-      </router-link>
-    </footer>
   </div>
 </template>
 <script>
@@ -92,12 +56,17 @@
       }
     },
     computed: {
+      projMgrNames() {
+        return this.$store.getters.users;
+      },
       projMgrSortedCostProposals() {
-        console.log(this.$store.getters.costProposalsGroupedByUserId.length);
         return this.$store.getters.costProposalsGroupedByUserId;
       },
       projMgrCount() {
         return this.$store.getters.costProposalsGroupedByUserId.length;
+      },
+      costProposalsByPM() {
+        return this.$store.getters.costProposalsGroupedByUserId;
       }
     },
     components: {

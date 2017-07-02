@@ -64,14 +64,13 @@ export const loadData = ({commit}) => {
       }
     });
 
-  // Vue.axios.get('users')
-  //   .then(response => response.data.data)
-  //   .then(data => {
-  //     if (data) {
-  //       const users = data;
-  //       commit('SET_USERS', users);
-          // console.log('users loaded');
-  //     }
-  //   });
+  Vue.axios.get('users')
+    .then(response => response.data.data)
+    .then(data => {
+      if (data) {
+        const users = data;
+        commit('SET_USERS', users);
+      }
+    });
   console.log('all data loaded');
 }

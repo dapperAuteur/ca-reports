@@ -37,12 +37,6 @@
         </app-cost-proposal>
       </div>
     </div>
-    <footer class="card-footer">
-      <a class="card-footer-item">Film Quote</a>
-      <a class="card-footer-item">Film Specs</a>
-      <a class="card-footer-item">User Cost Proposals</a>
-      <a class="card-footer-item">Opportunity</a>
-    </footer>
   </div>
 </template>
 

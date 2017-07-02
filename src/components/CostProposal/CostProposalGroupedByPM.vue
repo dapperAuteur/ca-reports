@@ -1,12 +1,12 @@
 <template>
   <div class="card">
     <header class="card-header">
-      <p class="card-header-title">
+      <!-- <p class="card-header-title">
         {{ costProposal.attributes['user-id'] }} is PM of Cost Proposal {{ costProposal.id }}
         <figure class="image is-48x48">
           <img src="#" alt="Image">
         </figure>
-      </p>
+      </p> -->
       <a class="card-header-icon">
         <span class="icon">
           <i class="fa fa-angle-down"></i>
@@ -16,11 +16,11 @@
     <div class="card-content">
       <div class="content">
         <h4>
-            User Id: {{ costProposal.attributes['user-id'] }}<br />
+            <!-- User Id: {{ costProposal.attributes['user-id'] }}<br />
             Opportunity Id: {{ costProposal.attributes['opportunity-id'] }}<br />
             Film Spec Id: {{ costProposal.attributes['film-spec-id'] }}<br />
             Film Quote Id: {{ costProposal.attributes['film-quote-id'] }}<br />
-            Date: {{ costProposal.attributes.date }}<br />
+            Date: {{ costProposal.attributes.date }}<br /> -->
             <!-- Section 1 Text: {{ costProposal.attributes['section1-text'] }}<br />
             TR1 Head: {{ costProposal.attributes['tr1-head'] }}<br />
             TR1-Text: {{ costProposal.attributes['tr1-text'] }}<br />
@@ -45,7 +45,7 @@
             File 2:{{ costProposal.attributes.file2 }}<br />
             File 3:{{ costProposal.attributes.file3 }}<br />
             File 4:{{ costProposal.attributes.file4 }}<br /> -->
-            Signature: {{ costProposal.attributes.signature }}<br />
+            <!-- Signature: {{ costProposal.attributes.signature }}<br /> -->
           </h4>
       </div>
     </div>
@@ -68,12 +68,13 @@
       }
     },
     computed: {
-      // costProposal() {
-      //   this.costProposals = this.$store.state.costProposals.costProposals;
-      //   this.$store.state.costProposals = this.costProposals;
-      //   console.log(this.costProposals);
-      //   return this.$store.state.costProposals;
-      // }
+      costProposalByProjMgr() {
+        var costProposals = this.$store.state.costProposals.costProposals;
+        console.log(costProposals);
+        var costProposalsByUser = this.$store.state.costProposalsByUser;
+        console.log(costProposalsByUser);
+        return costProposals;
+      }
     },
     created(){
 

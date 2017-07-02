@@ -1,10 +1,14 @@
 <template>
   <div id="app">
+    <app-header></app-header>
     <router-view></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
+  import Footer from './components/Footer';
+  import Header from './components/Header';
   export default {
     name: 'app',
     created() {
@@ -14,6 +18,10 @@
       // console.log(Chart.defaults.global.responsive);
       // Chart.defaults.global.responsive = true;
       // console.log(Chart.defaults);
+    },
+    components: {
+      appFooter: Footer,
+      appHeader: Header
     }
   }
 </script>
