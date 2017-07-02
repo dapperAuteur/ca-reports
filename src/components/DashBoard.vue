@@ -15,7 +15,7 @@
         <h2>All Proposals: 88</h2>
         <div class="columns">
           <div class="column">
-            <h2>Proposals By PM</h2>
+            <h2>Proposals By {{ projMgrCount }} PMs</h2>
             <h5>Keisha: 54</h5>
             <h5>Earl: 20</h5>
             <h5>Cleofus: 14</h5>
@@ -82,16 +82,23 @@
   </div>
 </template>
 <script>
+  import store from './../store/store';
   export default {
     name: 'budget',
     data () {
       return {
         balance: 0,
-        newValue: 0
+        newValue: 0,
       }
     },
-    created(){
-
+    computed: {
+      projMgrSortedCostProposals() {
+        console.log(this.$store.getters.costProposalsGroupedByUserId.length);
+        return this.$store.getters.costProposalsGroupedByUserId;
+      },
+      projMgrCount() {
+        return this.$store.getters.costProposalsGroupedByUserId.length;
+      }
     },
     components: {
 

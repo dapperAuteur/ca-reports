@@ -17,7 +17,7 @@ const mutations = {
       return d.attributes['user-id'];
     }).entries(costProposals);
     state.costProposalsGroupedByUserId = groupByPM;
-    console.log(state.costProposalsGroupedByUserId);
+    // console.log(state.costProposalsGroupedByUserId);
   },
   'SET_COST_PROPOSALS_BY_ID' (state, costProposals) {
     state.costProposals.sort(function(a, b){
