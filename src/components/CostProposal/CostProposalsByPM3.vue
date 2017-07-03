@@ -3,7 +3,17 @@
     <header class="card-header">
       <p class="card-header-title">
         Cost Proposals By PM
-
+        <button
+          class="btn btn-warning"
+          @click="pm1">
+          Project Manager 1's Cost Proposals
+        </button>
+        <button
+          class="btn btn-warning"
+          @click="pm2">
+          Project Manager 2's Cost Proposals
+        </button>
+        <h3>PM: {{ pm }}</h3>
         <figure class="image">
           <button
             class="btn btn-warning"
@@ -73,7 +83,8 @@
   export default {
     data () {
       return {
-        costProposalIdSort: false
+        costProposalIdSort: false,
+        pm: 1
       }
     },
     components: {
@@ -118,12 +129,21 @@
           return costProposal.attributes['user-id'] === pm
         });
       },
-      costProposalsByForLoop: function() {
-        for(var i = 0; i < this.$store.getters.costProposalsGroupedByUserId.length; i++) {
+      costProposalsByForLoop: function(pm) {
+        pm = this.pm;
+        for(var j = 0; j < this.$store.getters.costProposalsGroupedByUserId.length; j++) {
           return this.costProposals.filter(function (costProposal) {
-            return costProposal.attributes['user-id'] === 2;
+            return costProposal.attributes['user-id'] === pm;
           });
         }
+      },
+      pm1() {
+        console.log('pm 1');
+        this.pm = 1;
+      },
+      pm2() {
+        console.log('pm 2');
+        this.pm = 2;
       }
     }
   }
