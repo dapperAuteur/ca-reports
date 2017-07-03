@@ -121,7 +121,7 @@
       costProposalsByForLoop: function() {
         for(var i = 0; i < this.$store.getters.costProposalsGroupedByUserId.length; i++) {
           return this.costProposals.filter(function (costProposal) {
-            return costProposal.attributes['user-id'] === i
+            return costProposal.attributes['user-id'] === 2;
           });
         }
       }
