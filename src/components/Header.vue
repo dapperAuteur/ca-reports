@@ -26,11 +26,11 @@
         </a>
       </router-link>
       <router-link
-        to="#"
+        to="/cost-proposal-grouped-by-pm"
         activeClass="active"
         class="card-footer-item">
         <a>
-          Empty
+          Cost Proposals Grouped By PM
         </a>
       </router-link>
       <router-link
