@@ -13,6 +13,9 @@
     name: 'app',
     created() {
       this.$store.dispatch('loadData');
+        var pm = this.$store.getters.users;
+
+        // costProposal.attributes['user-id']
       // console.log(this.$store.state);
       // console.log(Chart.defaults.global);
       // console.log(Chart.defaults.global.responsive);

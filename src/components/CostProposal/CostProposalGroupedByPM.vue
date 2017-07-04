@@ -1,8 +1,12 @@
 <template>
   <div class="card">
     <header class="card-header">
+      <button
+        @click="showPMNames">
+        show pm names
+      </button>
       <p class="card-header-title">
-        {{ costProposal.attributes['user-id'] }} is PM of Cost Proposal {{ costProposal.id }}
+        {{ showPMName }} with Id {{ costProposal.attributes['user-id'] }} is PM of Cost Proposal {{ costProposal.id }}
         <figure class="image is-48x48">
           <img src="#" alt="Image">
         </figure>
@@ -64,16 +68,55 @@
     props: ['costProposal'],
     data () {
       return {
-
+        pmName: 'earl'
+      }
+    },
+    methods: {
+      showPMNames(){
+        var pm = this.$store.getters.users;
+        // var cp = this.$store.getters.costProposalsGroupedByUserId;
+        console.log(pm);
+        // console.log(cp);
+        for(var j = 0; j < pm.length; j++){
+          if(pm[j].id == this.costProposal.attributes['user-id']) {
+            console.log(pm[j].attributes.email);
+          }
+        }
       }
     },
     computed: {
+      showPMName(){
+        var pm = this.$store.getters.users;
+        // var cp = this.$store.getters.costProposalsGroupedByUserId;
+        var thisPM = '';
+        console.log(pm);
+        // console.log(cp);
+        for(var j = 0; j < pm.length; j++){
+          if(pm[j].id == this.costProposal.attributes['user-id']) {
+            console.log(pm[j].attributes.email);
+            // thisPM = pm[j].attributes.email;
+            return pm[j].attributes.email;
+          }
+        }
+      },
       costProposalByProjMgr() {
         var costProposals = this.$store.state.costProposals.costProposals;
         console.log(costProposals);
         var costProposalsByUser = this.$store.state.costProposalsByUser;
         console.log(costProposalsByUser);
-      }
+      },
+      // projMgrName() {
+      //   var pm = this.$store.getters.users;
+      //   var cp = this.$store.getters.costProposalsGroupedByUserId;
+      //   for(var i = 0; i < pm.length; i++) {
+      //     console.log(pm[i]);
+      //     for(var j = 0; j < u.length)
+      //     if(pm[i].attributes['user-id'] == ) {
+      //       console.log(costProposals[i].attributes['user-id']);
+      //     }
+      //   }
+      //   // costProposal.attributes['user-id']
+      // }
     },
     created(){
 
