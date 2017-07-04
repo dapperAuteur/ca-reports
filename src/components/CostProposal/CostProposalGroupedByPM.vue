@@ -1,10 +1,6 @@
 <template>
   <div class="card">
     <header class="card-header">
-      <button
-        @click="showPMNames">
-        show pm names
-      </button>
       <p class="card-header-title">
         {{ showPMName }} with Id {{ costProposal.attributes['user-id'] }} is PM of Cost Proposal {{ costProposal.id }}
         <figure class="image is-48x48">

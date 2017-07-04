@@ -12,7 +12,7 @@
     </header>
     <div class="card-content">
       <div class="content">
-        <h2>All Proposals: 88</h2>
+        <h2>All Proposals: {{ costProposalsTotal }}</h2>
         <div class="columns">
           <div class="column">
             <h2>Proposals By {{ projMgrCount }} PMs</h2>
@@ -56,6 +56,9 @@
       }
     },
     computed: {
+      costProposalsTotal() {
+        return this.$store.getters.costProposals.length;
+      },
       projMgrNames() {
         return this.$store.getters.users;
       },

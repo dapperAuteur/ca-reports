@@ -15,11 +15,11 @@
         </button>
         <h3>PM: {{ pm }}</h3>
         <figure class="image">
-          <button
+          <!-- <button
             class="btn btn-warning"
             @click="costProposalsByPM">
             Group Cost Proposals By PM
-          </button>
+          </button> -->
           <button
             v-if="!costProposalIdSort"
             class="btn btn-info"
@@ -45,7 +45,8 @@
         <app-cost-proposal-grouped-by-p-m
           v-for="costProposal in costProposalsByForLoop()"
           :key="costProposal.id"
-          :costProposal="costProposal">
+          :costProposal="costProposal"
+          class="column is-one-third">
         </app-cost-proposal-grouped-by-p-m>
       </div>
     </div>
